@@ -16,15 +16,12 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.posts = this.getAll();
+    this.http.get('https://jsonplaceholder.typicode.com/posts')
+      .subscribe(response => this.posts = response.json() as Observable<[Post]>);
   }
 
-  getAll(): Observable<any> {
-    return this.http.get('https://jsonplaceholder.typicode.com/posts')
-      .map(response => response.json());
-  }
+
 }
-
 export interface Post {
   userId: number;
   id: number;

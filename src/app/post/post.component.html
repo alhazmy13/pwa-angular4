@@ -1,0 +1,10 @@
+<h2>Post List</h2>
+
+<md-list>
+  <md-list-item *ngFor="let post of posts">
+    <h2 mdLine> {{post.title}} </h2>
+    <p mdLine>
+      <span> {{post.body}} </span>
+    </p>
+  </md-list-item>
+</md-list>
